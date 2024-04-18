@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Food, FoodService} from '../shared';
-import {FoodComponent} from '../food/food.component';
+import { Component, OnInit } from '@angular/core';
+import { FoodService } from '../shared/food.service';
+import { Food } from '../shared/food.model';
+import { FoodComponent } from '../food/food.component';
 
 @Component({
   selector: 'app-food-list',
@@ -10,12 +11,25 @@ import {FoodComponent} from '../food/food.component';
   styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent implements OnInit {
-  data: Food[] = [];
 
-  constructor(private foodService: FoodService) {
+  //Variable
+  data:Food[]= [];
+  constructor(public serviceFood:FoodService){
+          
   }
+
 
   ngOnInit(): void {
-    this.data = this.foodService.getAllFood();
+    this.serviceFood.getAll().subscribe({
+      next:(value) => (this.data = value),
+      error:(e) => console.error(e),
+      complete:()=> console.info('complete'),
+    });
+    //this.data = this.serviceFood.getAllFoods();
+    console.log(this.data);
+    
   }
+
+
+
 }

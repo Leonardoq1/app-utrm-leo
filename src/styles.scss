@@ -12,26 +12,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$pwa-project-primary: mat.define-palette(mat.$indigo-palette);
-$pwa-project-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$app-ut-primary: mat.define-palette(mat.$indigo-palette);
+$app-ut-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$pwa-project-warn: mat.define-palette(mat.$red-palette);
+$app-ut-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$pwa-project-theme: mat.define-light-theme((
+$app-ut-theme: mat.define-light-theme((
   color: (
-    primary: $pwa-project-primary,
-    accent: $pwa-project-accent,
-    warn: $pwa-project-warn,
+    primary: $app-ut-primary,
+    accent: $app-ut-accent,
+    warn: $app-ut-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($pwa-project-theme);
+@include mat.all-component-themes($app-ut-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -41,6 +41,7 @@ $pwa-project-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 *, ::before, ::after {
   border-style: none;
